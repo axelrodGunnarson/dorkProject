@@ -1,0 +1,62 @@
+mysql root:root
+wordpress 3.6: admin:admin
+            db wp-db36:wordpress (db wordpress36)
+wordpress 3.5: admin:admin
+            db wp-db35:wordpress (db wordpress35)
+
+plugins:
+http://downloads.wordpress.org/plugin/contact-form-7.3.5.3.zip
+http://downloads.wordpress.org/plugin/gregs-high-performance-seo.1.5.5.zip
+http://downloads.wordpress.org/plugin/responsive-add-ons.1.0.4.zip
+http://downloads.wordpress.org/plugin/seo-extended.1.0.0.zip
+http://downloads.wordpress.org/plugin/squirrly-seo.zip
+http://downloads.wordpress.org/plugin/seo-ultimate.7.6.1.zip
+http://downloads.wordpress.org/plugin/wordpress-seo.1.4.18.zip
+http://downloads.wordpress.org/plugin/wp-social-seo-booster.zip
+
+themes:
+attitude
+buzz
+catch_box
+customizr
+destro
+expound
+iconic_one
+ifeature
+mantra
+point
+responsive
+spun
+strapvert
+swift_basic
+twentyeleven
+twentyten
+twentythirteen
+twentytwelve
+vantage
+wp_opulus
+
+generatePageContent.py:
+    - accept a list of urls and a directory where to store the pages
+    - take all files not javascript/flash
+    - extract all strings (text out of html/xml tags)
+    - save them separated per page
+
+selectBadFiles.py:
+    - take as parameter the directory where the pages are stored and a new one
+    - take all files, use magic to understand the type
+    - mv all files that are of a certain type to the new directory
+
+removeUserParts.py:
+    - take as parameter a folder where the pages are stored the name of an output folder
+    - take all the files produced
+    - take all the strings
+    - remove some of them according to rules (defined)
+    - save everything in a file with the same name in the output folder
+
+dorkCreator.py:
+    - take as input a folder containing pages and an output file
+    - for every page it finds inside the input folder save the list of words present inside
+        a dictionary with dic[path]=listOfWords
+    - save as a json file (good for dictionaries) the resulting dictionary
+
